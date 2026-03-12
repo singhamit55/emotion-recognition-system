@@ -1,10 +1,12 @@
 {
-  "name": "Emotion Recognition System",
-  "short_name": "EmotionAI",
-  "start_url": "index.html",
+  "name": "MoodLens AI Emotion Detector",
+  "short_name": "MoodLens",
+  "description": "AI powered facial emotion detection using DeepFace.",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#4CAF50",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
