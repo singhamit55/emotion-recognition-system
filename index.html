@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MoodLens — AI Emotion Detector</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <span class="logo-emoji">🎭</span>
+      Mood<span class="pop">Lens</span>
+    </div>
+    <span class="headers-tag">Developed By Amit Singh </span>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-title">
+      Read Every<br>
+      <span class="gradient">Human Emotion.</span>
+    </h1>
+    <p class="hero-sub">
+      Upload a photo and let AI instantly detect your emotion —
+      powered by DeepFace deep learning.
+    </p>
+    <div class="emotion-pills">
+      <div class="epill"><span>😄</span> Happy</div>
+      <div class="epill"><span>😢</span> Sad</div>
+      <div class="epill"><span>😠</span> Angry</div>
+      <div class="epill"><span>😲</span> Surprised</div>
+      <div class="epill"><span>😨</span> Fearful</div>
+      <div class="epill"><span>🤢</span> Disgusted</div>
+      <div class="epill"><span>😐</span> Neutral</div>
+    </div>
+  </section>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- LEFT: Upload Panel -->
+    <div class="upload-panel">
+      <div class="panel-title">Upload or Capture</div>
+
+      <!-- Drop Zone -->
+      <div class="drop-zone" id="dropZone">
+        <input type="file" id="fileInput" accept="image/*"/>
+        <div id="dropInner">
+          <div class="drop-big-emoji">📸</div>
+          <div class="drop-title">Drop a face photo</div>
+          <div class="drop-sub">Click to browse · JPG, PNG, WEBP</div>
+          <div class="drop-sub drop-hint">Best: clear frontal face, good lighting</div>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div id="preview-wrap">
+        <img id="preview-img" src="" alt="Preview"/>
+        <div class="btn-row">
+          <button class="btn btn-main" id="detectBtn">🔍 Detect Emotion</button>
+          <button class="btn btn-ghost" id="resetBtn">Re-Take</button>
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div class="loading" id="loading">
+        <div class="pulse-ring">
+          <div class="pulse-emoji">🎭</div>
+        </div>
+        <div class="loading-msg">Analyzing face...</div>
+        <div class="loading-sub" id="loadingStep">Detecting facial landmarks</div>
+      </div>
+
+      <!-- Webcam -->
+      <div class="webcam-row">
+        <button class="btn-cam" id="camBtn">📷 Use Camera</button>
+        <button class="btn-cam" id="snapBtn">📸 Snap Photo</button>
+      </div>
+      <div id="video-wrap">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+
+    <!-- RIGHT: Results -->
+    <div class="result-area">
+
+      <!-- Empty state -->
+      <div class="empty" id="emptyState">
+        <div class="empty-big">🎭</div>
+        <div class="empty-t">No face analyzed yet</div>
+        <div class="empty-s">Upload a photo or use your Camera to detect emotions</div>
+      </div>
+
+      <!-- Results (hidden until detection) -->
+      <div id="results">
+
+        <!-- Dominant emotion card -->
+        <div class="dom-card" id="domCard">
+          <div class="dom-top">
+            <div class="dom-left">
+              <div class="dom-label">Dominant Emotion</div>
+              <div class="dom-name" id="domName">—</div>
+              <div class="dom-msg" id="domMsg">—</div>
+            </div>
+            <div class="dom-emoji-big" id="domEmoji">😐</div>
+          </div>
+          <div class="dom-conf">
+            <span id="confLabel">Confidence: 0%</span>
+          </div>
+          <div class="conf-bar">
+            <div class="conf-fill" id="confFill"></div>
+          </div>
+        </div>
+
+        <!-- All emotion bars -->
+        <div class="bars-card">
+          <div class="bars-title">All Emotion Scores</div>
+          <div id="emoBars"></div>
+        </div>
+
+        <!-- Fun fact tip -->
+        <div class="tip-card" id="tipCard">
+          <div class="tip-icon">💡</div>
+          <div>
+            <div class="tip-title">Did you know?</div>
+            <div class="tip-text" id="tipText">—</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="disc">
+    MoodLens uses DeepFace  "A pre-trained facial analysis by AI."
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
